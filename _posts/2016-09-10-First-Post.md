@@ -2,7 +2,7 @@
 layout: post
 title: 第一篇博文
 category: 杂文
-tags:[第一篇,杂文]
+tags:["第一篇","杂文"]
 keywords: first, post
 ---
 
