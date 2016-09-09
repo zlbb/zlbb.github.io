@@ -1,0 +1,57 @@
+<h3>Directory</h3>
+<div id="post-directory-module">
+    <section class="post-directory">
+        <!-- Links that trigger the jumping -->
+        <!-- Added by javascript below -->
+        <dl></dl>
+    </section>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("article h2").each(function (index) {
+            $(".post-directory dl").append("<dt><a class=\"jumper\" href=#" +
+                    $(this).attr("id")
+                    + ">"
+                    + $(this).text()
+                    + "</a></dt>");
+
+            var children = $(this).nextUntil("h2", "h3");
+
+            children.each(function (index) {
+                $(".post-directory dl").append("<dd><a class=\"jumper\" href=#" +
+                        $(this).attr("id")
+                        + ">"
+                        + "&nbsp;&nbsp;- " + $(this).text()
+                        + "</a></dd>");
+            });
+        });
+
+        //排除小设备下的fixed布局
+        if ($(document).width() > parseFloat($('body').css('fontSize')) * 50) {
+
+            var fixmeTop = $('#post-directory-module').offset().top - 80;       // get initial position of the element
+            $(window).scroll(function () {                  // assign scroll event listener
+
+                var currentScroll = $(window).scrollTop(); // get current position
+
+                if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                    $('#post-directory-module').css({                      // scroll to that element or below it
+                        top: '80px',
+                        position: 'fixed',
+                    });
+                } else {                                   // apply position: static
+                    $('#post-directory-module').css({                      // if you scroll above it
+                        position: 'inherit',
+                    });
+                }
+            });
+        }
+        $('#post-directory-module a').parent().click(function ($event) {
+            $(this).find('a').click();
+        });
+    });
+
+
+</script>
