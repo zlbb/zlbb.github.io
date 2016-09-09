@@ -8,11 +8,11 @@ keywords: Zale, Libe, 张乐, 李贝贝, blog, 博客, 二人网站
 
 url:
 baseurl:  "/"
-domain:   "zale.site"
+domain:   "zlbb.pub"
 permalink:     /articles/:year/:month/:title.html
 paginate_path: 'page:num'
 paginate:   10
-source_code: https://github.com/zl810881283/zlbb
+source_code: https://github.com/zlbb/zlbb.github.io
 
 timezone: Asia/Shanghai
 encoding: "utf-8"
